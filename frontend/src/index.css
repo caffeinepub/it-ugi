@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* ── Light mode ── */
+    --background: 0.97 0.005 260;
+    --foreground: 0.12 0.02 260;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.02 260;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.02 260;
+    --primary: 0.65 0.22 35;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.93 0.01 260;
+    --secondary-foreground: 0.12 0.02 260;
+    --muted: 0.93 0.01 260;
+    --muted-foreground: 0.5 0.02 260;
+    --accent: 0.93 0.01 260;
+    --accent-foreground: 0.12 0.02 260;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    --border: 0.88 0.01 260;
+    --input: 0.88 0.01 260;
+    --ring: 0.65 0.22 35;
+
+    /* Brand orange-coral */
+    --brand: 0.65 0.22 35;
+    --brand-foreground: 1 0 0;
+    --surface: 0.97 0.005 260;
+    --surface-2: 0.93 0.01 260;
+
+    /* Resolved color shortcuts for @apply usage */
+    --color-border-subtle: oklch(0.88 0.01 260 / 0.5);
+    --color-border-faint: oklch(0.88 0.01 260 / 0.4);
+    --color-border-dim: oklch(0.88 0.01 260 / 0.3);
+    --color-brand-subtle: oklch(0.65 0.22 35 / 0.4);
+    --color-brand-faint: oklch(0.65 0.22 35 / 0.6);
+    --color-brand-bg: oklch(0.65 0.22 35 / 0.1);
+    --color-brand-bg-badge: oklch(0.65 0.22 35 / 0.2);
+    --color-brand-border-badge: oklch(0.65 0.22 35 / 0.3);
+    --color-brand-hover: oklch(0.65 0.22 35 / 0.9);
+  }
+
+  .dark {
+    /* ── Dark mode — primary theme ── */
+    --background: 0.11 0.01 260;
+    --foreground: 0.95 0.01 260;
+    --card: 0.15 0.015 260;
+    --card-foreground: 0.95 0.01 260;
+    --popover: 0.18 0.015 260;
+    --popover-foreground: 0.95 0.01 260;
+    --primary: 0.65 0.22 35;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.2 0.015 260;
+    --secondary-foreground: 0.95 0.01 260;
+    --muted: 0.2 0.015 260;
+    --muted-foreground: 0.55 0.02 260;
+    --accent: 0.22 0.015 260;
+    --accent-foreground: 0.95 0.01 260;
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 1 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 12%;
+    --ring: 0.65 0.22 35;
+
+    /* Brand orange-coral */
+    --brand: 0.65 0.22 35;
+    --brand-foreground: 1 0 0;
+    --surface: 0.15 0.015 260;
+    --surface-2: 0.18 0.015 260;
+
+    /* Resolved color shortcuts for @apply usage */
+    --color-border-subtle: oklch(1 0 0 / 0.1);
+    --color-border-faint: oklch(1 0 0 / 0.08);
+    --color-border-dim: oklch(1 0 0 / 0.06);
+    --color-brand-subtle: oklch(0.65 0.22 35 / 0.4);
+    --color-brand-faint: oklch(0.65 0.22 35 / 0.6);
+    --color-brand-bg: oklch(0.65 0.22 35 / 0.1);
+    --color-brand-bg-badge: oklch(0.65 0.22 35 / 0.2);
+    --color-brand-border-badge: oklch(0.65 0.22 35 / 0.3);
+    --color-brand-hover: oklch(0.65 0.22 35 / 0.9);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* ── Cards & Panels ── */
+  .card-panel {
+    @apply bg-card rounded-xl p-5 sm:p-6;
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  /* ── Step badges ── */
+  .step-badge {
+    @apply w-8 h-8 rounded-full bg-brand text-brand-foreground text-sm font-bold flex items-center justify-center flex-shrink-0;
+  }
+
+  .step-badge-optional {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  /* ── Section headings ── */
+  .section-heading {
+    @apply font-display font-bold text-base text-foreground;
+  }
+
+  /* ── Form elements ── */
+  .form-label {
+    @apply text-sm font-semibold;
+    color: oklch(var(--foreground) / 0.9);
+  }
+
+  .input-field {
+    @apply bg-surface-2 text-foreground;
+    border-color: var(--color-border-subtle);
+  }
+
+  .input-field:focus {
+    border-color: oklch(var(--brand));
+    outline: none;
+    box-shadow: 0 0 0 2px oklch(var(--brand) / 0.2);
+  }
+
+  .input-field::placeholder {
+    color: oklch(var(--muted-foreground) / 0.6);
+  }
+
+  .error-text {
+    @apply text-destructive text-xs flex items-center gap-1;
+  }
+
+  /* ── Platform cards ── */
+  .platform-card {
+    @apply flex items-center gap-2.5 p-3 rounded-lg bg-surface-2 cursor-pointer transition-all duration-150;
+    border: 1px solid var(--color-border-subtle);
+    color: oklch(var(--foreground) / 0.8);
+  }
+
+  .platform-card:hover {
+    border-color: var(--color-brand-subtle);
+  }
+
+  .platform-card-active {
+    border-color: var(--color-brand-faint) !important;
+    background-color: var(--color-brand-bg);
+    @apply text-foreground;
+  }
+
+  /* ── Radio cards ── */
+  .radio-card {
+    @apply flex items-start gap-3 p-4 rounded-lg bg-surface-2 cursor-pointer transition-all duration-150;
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .radio-card:hover {
+    border-color: var(--color-brand-subtle);
+  }
+
+  .radio-card-active {
+    border-color: var(--color-brand-faint) !important;
+    background-color: var(--color-brand-bg);
+  }
+
+  /* ── Brand button ── */
+  .btn-brand {
+    @apply bg-brand text-brand-foreground font-bold shadow-brand transition-all duration-150;
+  }
+
+  .btn-brand:hover {
+    background-color: oklch(var(--brand) / 0.9);
+  }
+
+  /* ── Badges ── */
+  .badge-brand {
+    @apply text-brand;
+    background-color: var(--color-brand-bg-badge);
+    border: 1px solid var(--color-brand-border-badge);
+  }
+
+  /* ── Tabs ── */
+  .tabs-list {
+    @apply bg-surface-2 rounded-xl;
+    border: 1px solid var(--color-border-faint);
+  }
+
+  .tab-trigger {
+    @apply rounded-lg font-semibold transition-all;
+  }
+
+  .tab-trigger[data-state='active'] {
+    @apply bg-brand text-brand-foreground shadow-none;
+  }
+
+  /* ── Accordion ── */
+  .accordion-item {
+    @apply rounded-lg overflow-hidden bg-surface-2;
+    border: 1px solid var(--color-border-faint);
+  }
+
+  .accordion-trigger {
+    @apply px-4 py-3 font-semibold;
+  }
+
+  .accordion-trigger:hover {
+    text-decoration: none;
+  }
+
+  .accordion-content {
+    @apply px-4 pb-4;
+  }
+
+  /* ── Script blocks ── */
+  .script-block {
+    @apply text-sm whitespace-pre-wrap font-mono leading-relaxed bg-background rounded-lg p-4;
+    color: oklch(var(--foreground) / 0.9);
+    border: 1px solid var(--color-border-dim);
+  }
+}

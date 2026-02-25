@@ -1,0 +1,87 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T18:05:58.920Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 5,
+    "implemented": 0,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Audit and fix the backend save and history flow in `useQueries.ts` so that the 'Save Package' action in `CreativeResults` correctly calls the backend actor's save function, and `PackageHistory` correctly fetches and lists all previously saved packages using the actor's list/query functions.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/CreativeResults.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/PackageHistory.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Audit and fix the navigation flow in `App.tsx` so that the 'New Creative' button resets the app to the form view, the 'History' button navigates to the history view, and back/cancel actions from results or history return to the form view without losing state unexpectedly.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/components/CreativeResults.tsx",
+          "frontend/src/components/PackageHistory.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Audit and fix the 'Copy to Clipboard' and 'Copy All' buttons in `CreativeResults` so they correctly copy the content of each individual section or the full package text to the clipboard and display a visible confirmation (e.g., button label change or toast) after copying.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/CreativeResults.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Ensure the Motoko backend actor in `backend/main.mo` correctly compiles and exposes all required update and query functions: saving a creative package (with all fields including scripts, ad copy, persona, shot breakdown), retrieving a package by ID, and listing all saved packages. Fix any type mismatches or missing field definitions that prevent successful canister deployment.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Audit and fix the creative package generation flow so that submitting the multi-step form correctly invokes `generateCreativePackage` from `creativeGenerator.ts`, passes all form inputs (product name, description, platforms, funnel stage, tone mode, competitor info), and transitions the app view from 'form' to 'results' with the generated package displayed in `CreativeResults`.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/CreativeForm.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/CreativeResults.tsx"
+        ],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/README.md",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/utils/urlParams.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

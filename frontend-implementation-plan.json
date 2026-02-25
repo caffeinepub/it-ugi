@@ -1,0 +1,120 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix end-to-end functionality: form submission, creative generation, save/load flow",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "summary": "Fix creative package generation flow from form submission to results display",
+      "acceptanceCriteria": [
+        "Filling in the multi-step form and clicking Submit triggers `generateCreativePackage` with the correct inputs",
+        "The app navigates to the results view after submission",
+        "The results view renders all generated sections (persona, hooks, scripts, Meta Ads, Google Ads, shot breakdown)",
+        "No console errors occur during the form-to-results flow"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CreativeForm.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the form submission handler to ensure all collected inputs (product name, description, platforms array, funnel stage, tone mode, competitor info) are correctly passed to the onSubmit callback. Verify form validation runs before submission and that the submit button is properly wired."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the form submission callback to ensure it correctly invokes `generateCreativePackage` from `creativeGenerator.ts` with all form inputs, stores the generated package in state, and transitions the view from 'form' to 'results'. Ensure the generated package data structure matches the expected CreativePackage type."
+        },
+        {
+          "path": "frontend/src/components/CreativeResults.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the results component to ensure it correctly receives and renders all sections of the generated package: audience persona, hook variations, scripts, Meta Ads copy, Google Ads copy, and shot breakdown. Verify that the component handles missing or incomplete package data gracefully without crashing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Fix backend save and history flow for creative packages",
+      "acceptanceCriteria": [
+        "Clicking 'Save Package' in the results view sends the package to the backend and shows a success confirmation",
+        "The History view lists all previously saved packages fetched from the backend",
+        "Selecting a package from history navigates to the results view and displays that package's content",
+        "Loading and error states are handled gracefully in `PackageHistory`"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Audit and fix the save mutation hook to correctly call the backend actor's `saveCreativePackage` function, passing all required fields (id, productName, description, funnelStage, tone, scriptAssets, copyAssets, personaAssets, shotAssets). Ensure the Asset[] arrays are properly constructed from the generated package sections. Add success/error handling with appropriate user feedback."
+        },
+        {
+          "path": "frontend/src/components/CreativeResults.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the 'Save Package' action to invoke the save mutation from useQueries, handle loading states during save, and display a visible success confirmation (toast or button label change) after the package is successfully saved to the backend."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Audit and fix the query hooks for fetching all packages and fetching a single package by ID. Ensure `getAllCreativePackages` correctly calls the backend actor's query function and returns the package list. Ensure `getCreativePackage` correctly fetches a single package. Add proper error handling for both queries."
+        },
+        {
+          "path": "frontend/src/components/PackageHistory.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the history component to use the getAllCreativePackages query hook, render loading/error/empty states appropriately, display the list of saved packages with key metadata, and provide a click handler that loads the selected package and navigates to the results view."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the package selection handler from PackageHistory. Ensure selecting a package from history updates the current package state and navigates to the 'results' view, allowing the user to view the previously saved package content."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Fix navigation flow between form, results, and history views",
+      "acceptanceCriteria": [
+        "'New Creative' button resets the form and navigates to the form view",
+        "'History' button navigates to the PackageHistory view",
+        "Navigating back from results or history returns to the correct prior view",
+        "No blank or broken screens appear during navigation transitions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the view state management and navigation logic. Ensure the 'New Creative' handler resets the current package state to null and transitions to 'form' view. Ensure the 'History' handler transitions to 'history' view. Verify that back/cancel actions from results or history properly transition to the intended previous view without losing state unexpectedly."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the navigation button handlers ('New Creative', 'History') to ensure they correctly invoke the parent callbacks passed from App.tsx. Verify the hero banner conditional rendering only appears on the form view."
+        },
+        {
+          "path": "frontend/src/components/CreativeResults.tsx",
+          "operation": "modify",
+          "description": "Audit and ensure any back/cancel action in the results view correctly invokes a navigation callback to return to the form view."
+        },
+        {
+          "path": "frontend/src/components/PackageHistory.tsx",
+          "operation": "modify",
+          "description": "Audit and ensure any back/cancel action in the history view correctly invokes a navigation callback to return to the form view."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Fix copy-to-clipboard functionality for individual sections and full package",
+      "acceptanceCriteria": [
+        "Each section's 'Copy' button copies only that section's text to the clipboard",
+        "'Copy All' button copies the entire generated package as formatted text",
+        "A visible confirmation (label change, icon, or toast) appears after a successful copy",
+        "Copy functionality works in all major modern browsers"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CreativeResults.tsx",
+          "operation": "modify",
+          "description": "Audit and fix the copy-to-clipboard logic for each section's 'Copy' button to ensure it uses the Clipboard API (navigator.clipboard.writeText) to copy only that section's content. Fix the 'Copy All' button to concatenate all sections with appropriate formatting and copy the full package text. Add visible confirmation feedback (button label change, icon swap, or toast notification) that appears immediately after a successful copy and resets after a short delay."
+        }
+      ]
+    }
+  ]
+}

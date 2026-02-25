@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "A UGC Video Creative Director & Performance Marketing AI Agent that generates high-converting UGC-style video scripts and paid ad creatives optimized for YouTube, Instagram, Facebook, TikTok, Meta Ads, and Google Video Ads. The agent applies direct response marketing frameworks (AIDA, PAS), hook-based scripting, platform-specific formatting, and performance ad psychology to produce complete creative packages including scripts, ad copy, shot breakdowns, CTAs, and thumbnail ideas.",
+  "architectural_notes": [
+    "Output must always be structured with clearly labeled sections (Audience Persona, Hook Variations, Scripts, Ad Copy, etc.)",
+    "Scripts must follow UGC-authentic conversational tone — no corporate language or long intros",
+    "First 3 seconds of every short-form script must trigger curiosity, highlight pain, or make a bold promise",
+    "Apply AIDA and PAS frameworks alongside FOMO, urgency, social proof, and authority principles"
+  ],
+  "known_issues": [],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-build-a-multi-step-input-form-on-the-frontend-where-users-enter-1-product-service-name-and-description-2-target-platforms-checkboxes-for-youtube-instagram-facebook-tiktok-meta-ads-google-video-ads-3-funnel-stage-cold-audience-warm-retargeting-hot-conversion-4-tone-mode-aggressive-hard-sell-soft-persuasive-authority-driven-luxury-positioning-and-5-optional-competitor-information-on-submission-the-form-passes-all-inputs-to-the-creative-generation-logic",
+      "title": "Build a multi-step input form on the frontend where users enter: (1) product/service name and description, (2) target platforms (checkboxes for YouTube, Instagram, Facebook, TikTok, Meta Ads, Google Video Ads), (3) funnel stage (cold audience / warm retargeting / hot conversion), (4) tone mode (aggressive hard sell / soft persuasive / authority-driven / luxury positioning), and (5) optional competitor information. On submission, the form passes all inputs to the creative generation logic.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-deterministic-creative-package-generator-pure-typescript-logic-on-the-frontend-that-given-the-user-inputs-produces-a-an-audience-persona-with-pain-points-desires-and-objections-b-at-least-5-hook-variations-labeled-by-type-pattern-interrupt-question-bold-claim-fomo-authority-c-a-30-second-ugc-ad-script-d-a-15-second-cutdown-script-e-a-6-second-bumper-hook-f-a-long-form-youtube-script-outline-intro-body-cta-all-outputs-must-apply-aida-and-pas-frameworks-and-adapt-copy-to-the-selected-tone-mode-and-funnel-stage",
+      "title": "Implement a deterministic creative package generator (pure TypeScript logic on the frontend) that, given the user inputs, produces: (a) an audience persona with pain points, desires, and objections; (b) at least 5 hook variations labeled by type (pattern interrupt, question, bold claim, FOMO, authority); (c) a 30-second UGC ad script; (d) a 15-second cutdown script; (e) a 6-second bumper hook; (f) a long-form YouTube script outline (intro, body, CTA). All outputs must apply AIDA and PAS frameworks and adapt copy to the selected tone mode and funnel stage.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-meta-ads-copy-as-part-of-the-creative-package-3-primary-text-variations-3-headlines-3-descriptions-and-a-suggested-cta-button-label-apply-fomo-urgency-social-proof-and-authority-positioning-based-on-the-selected-tone-and-funnel-stage",
+      "title": "Generate Meta Ads copy as part of the creative package: 3 Primary Text variations, 3 Headlines, 3 Descriptions, and a suggested CTA button label. Apply FOMO, urgency, social proof, and authority positioning based on the selected tone and funnel stage.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-google-video-ads-copy-as-part-of-the-creative-package-5-headlines-max-30-characters-each-5-long-headlines-4-descriptions-and-a-5-second-hook-script-for-youtube-in-stream-ads",
+      "title": "Generate Google Video Ads copy as part of the creative package: 5 Headlines (max 30 characters each), 5 Long Headlines, 4 Descriptions, and a 5-second hook script for YouTube in-stream ads.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-include-a-shot-breakdown-section-in-the-creative-package-output-that-lists-camera-angles-b-roll-suggestions-and-facial-expression-performance-cues-for-each-major-script-section-hook-body-cta-also-include-on-screen-text-overlay-suggestions-and-youtube-thumbnail-text-ideas",
+      "title": "Include a Shot Breakdown section in the creative package output that lists camera angles, b-roll suggestions, and facial expression/performance cues for each major script section (hook, body, CTA). Also include on-screen text overlay suggestions and YouTube thumbnail text ideas.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-the-full-generated-creative-package-in-a-well-organized-tabbed-or-sectioned-results-page-with-clearly-labeled-headings-for-each-output-section-provide-a-copy-to-clipboard-button-for-each-individual-section-and-a-copy-all-button-for-the-full-package-allow-users-to-save-the-package-to-the-backend-and-view-a-history-of-previously-generated-packages",
+      "title": "Display the full generated creative package in a well-organized, tabbed or sectioned results page with clearly labeled headings for each output section. Provide a 'Copy to Clipboard' button for each individual section and a 'Copy All' button for the full package. Allow users to save the package to the backend and view a history of previously generated packages.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-bold-high-energy-visual-theme-inspired-by-professional-creative-agency-and-performance-marketing-aesthetics-use-a-dark-background-with-vivid-accent-colors-e-g-electric-orange-or-neon-coral-strong-typographic-hierarchy-and-a-clean-grid-layout-ensure-the-theme-is-consistent-across-all-pages-and-components",
+      "title": "Apply a bold, high-energy visual theme inspired by professional creative agency and performance marketing aesthetics. Use a dark background with vivid accent colors (e.g., electric orange or neon coral), strong typographic hierarchy, and a clean grid layout. Ensure the theme is consistent across all pages and components.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Multi-platform UGC script generation (30-sec, 15-sec, 6-sec bumper, long-form YouTube)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Hook variations generator (min 5 hooks: pattern interrupt, question, bold claim, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Meta Ads copy generation (3 Primary Texts, 3 Headlines, 3 Descriptions, CTA button suggestion)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Google Video Ads copy generation (5 Headlines, 5 Long Headlines, 4 Descriptions, 5-sec hook)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Audience persona identification with pain points, desires, and objections",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Shot breakdown with camera angles, b-roll suggestions, and facial expression cues",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Funnel-stage optimization (cold audience, warm retargeting, hot conversion)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Tone rewriting modes (aggressive hard sell, soft persuasive, authority-driven, luxury positioning)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Competitor analysis feature when competitor info is provided",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Thumbnail text suggestions and on-screen text overlay recommendations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Create a Motoko backend actor that accepts a product/service description, target platform(s), funnel stage (cold/warm/hot), and tone mode (aggressive hard sell, soft persuasive, authority-driven, luxury positioning) as inputs, and stores generated creative packages. The actor must expose query and update functions to save and retrieve creative packages by ID, including all script variants, ad copy, audience persona, and shot breakdown data.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Audit and fix the creative package generation flow so that submitting the multi-step form correctly invokes `generateCreativePackage` from `creativeGenerator.ts`, passes all form inputs (product name, description, platforms, funnel stage, tone mode, competitor info), and transitions the app view from 'form' to 'results' with the generated package displayed in `CreativeResults`.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Audit and fix the backend save and history flow in `useQueries.ts` so that the 'Save Package' action in `CreativeResults` correctly calls the backend actor's save function, and `PackageHistory` correctly fetches and lists all previously saved packages using the actor's list/query functions.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Audit and fix the navigation flow in `App.tsx` so that the 'New Creative' button resets the app to the form view, the 'History' button navigates to the history view, and back/cancel actions from results or history return to the form view without losing state unexpectedly.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Audit and fix the 'Copy to Clipboard' and 'Copy All' buttons in `CreativeResults` so they correctly copy the content of each individual section or the full package text to the clipboard and display a visible confirmation (e.g., button label change or toast) after copying.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Ensure the Motoko backend actor in `backend/main.mo` correctly compiles and exposes all required update and query functions: saving a creative package (with all fields including scripts, ad copy, persona, shot breakdown), retrieving a package by ID, and listing all saved packages. Fix any type mismatches or missing field definitions that prevent successful canister deployment.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "UGC Video Creative Director Agent",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

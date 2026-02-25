@@ -1,0 +1,63 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T18:05:58.916Z",
+  "summary": "The diff shows modifications to backend/main.mo, frontend/src/hooks/useActor.ts, project_state.json, and a new utility file frontend/src/utils/urlParams.ts. The backend changes add CreativePackage type and save/get/list functions. However, the diff does not show changes to the core frontend files required by the requirements: App.tsx (REQ-11 navigation), CreativeResults (REQ-12 copy buttons, REQ-10 save package), PackageHistory (REQ-10 history view), useQueries.ts (REQ-10 backend calls), or creativeGenerator.ts / the multi-step form (REQ-9). The urlParams.ts addition appears unrelated to any stated requirement.",
+  "missing_requirements": [
+    {
+      "id": "REQ-9",
+      "requirement": "Audit and fix the creative package generation flow so that submitting the multi-step form correctly invokes generateCreativePackage from creativeGenerator.ts, passes all form inputs, and transitions the app view from 'form' to 'results' with the generated package displayed in CreativeResults.",
+      "reason": "No changes to the multi-step form component, creativeGenerator.ts, or App.tsx view transition logic are present in the diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Audit and fix the backend save and history flow in useQueries.ts so that 'Save Package' in CreativeResults calls the backend actor's save function, and PackageHistory fetches and lists all previously saved packages.",
+      "reason": "No changes to useQueries.ts, CreativeResults component, or PackageHistory component are present in the diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Audit and fix the navigation flow in App.tsx so that 'New Creative' resets to form view, 'History' navigates to history view, and back/cancel actions return to the correct prior view.",
+      "reason": "No changes to App.tsx are present in the diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Audit and fix the 'Copy to Clipboard' and 'Copy All' buttons in CreativeResults so they correctly copy content and display a visible confirmation.",
+      "reason": "No changes to CreativeResults component are present in the diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-13",
+      "requirement": "Ensure the Motoko backend actor exposes savePackage returning a new ID, getPackage by ID, and listPackages. The savePackage function should accept a full CreativePackage record and return the new ID.",
+      "reason": "backend/main.mo is modified and adds saveCreativePackage, getCreativePackage, and getAllCreativePackages. However, saveCreativePackage returns async () rather than the new ID, and takes individual parameters rather than a single CreativePackage record, failing the AC requirement that savePackage returns the new ID.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "A URL parameter utility module (urlParams.ts) with functions for persisting URL parameters in sessionStorage, clearing hash parameters, and managing session parameters including a caffeineAdminToken concept.",
+      "reason": "No requirement in the BuildRequest mentions URL parameter management, sessionStorage persistence, admin tokens, or hash-based routing utilities. This is entirely unrelated to the stated requirements.",
+      "evidence": [
+        "frontend/src/utils/urlParams.ts"
+      ]
+    },
+    {
+      "description": "The useActor.ts file is modified to import and use getSecretParameter from urlParams.ts to retrieve a caffeineAdminToken and call actor._initializeAccessControlWithSecret.",
+      "reason": "No requirement mentions admin tokens, secret parameters, or access control initialization in the actor setup. Additionally, the BuildRequest explicitly lists frontend/src/hooks/useActor.ts as a file that must not be modified.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "confidence": 0.88,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/utils/urlParams.ts",
+    "project_state.json"
+  ]
+}

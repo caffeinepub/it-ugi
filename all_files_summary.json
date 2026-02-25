@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Main Motoko actor implementing the backend with user profile management, asset storage, and creative package CRUD operations, all gated behind access control authorization checks.",
+  "feature_evidence.json": "Empty feature evidence report JSON file with no recorded features.",
+  "frontend-file-summaries.txt": "JSON document containing one-sentence summaries of each frontend source file, serving as a reference overview of the frontend codebase structure.",
+  "frontend/index.css": "Global Tailwind CSS entry point defining OKLCH-based CSS custom property color tokens for both light and dark themes, plus base border and background styles.",
+  "frontend/index.html": "Minimal HTML shell that mounts the React app into a root div and loads the main TypeScript entry point as an ES module.",
+  "frontend/src/App.tsx": "Root React component managing view state (form/results/history), orchestrating creative package generation, and routing between CreativeForm, CreativeResults, and PackageHistory components.",
+  "frontend/src/components/CreativeForm.tsx": "Multi-step form component for collecting product details, platform selection, funnel stage, and tone mode, with validation before submitting inputs to the creative generator.",
+  "frontend/src/components/CreativeResults.tsx": "Tabbed results display rendering all generated creative package sections with per-section copy buttons and a Save Package action that persists the package to the backend.",
+  "frontend/src/components/Layout.tsx": "App shell component providing a sticky header with navigation, a conditional hero banner on the form view, and a main content area wrapping child views.",
+  "frontend/src/components/PackageHistory.tsx": "React component that displays a list of saved creative packages fetched from the backend, allowing users to select a package to load or navigate to create a new one. Handles loading, error, and empty states with skeleton placeholders and appropriate UI feedback.",
+  "frontend/src/hooks/useActor.ts": "Custom hook that creates and caches an ICP backend actor using React Query, supporting both anonymous and authenticated (Internet Identity) usage, and invalidates dependent queries when the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context and provider using DFINITY's AuthClient, exposing login/logout functions, identity state, and login status to child components via React context.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for fetching all creative packages, fetching a single package by ID, and saving a new creative package to the ICP backend actor.",
+  "frontend/src/index.css": "Global stylesheet that imports fonts, configures Tailwind CSS, and defines CSS custom properties for light and dark themes including brand colors, surfaces, and reusable component utility classes.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app with React Query and Internet Identity providers wrapping the root App component.",
+  "frontend/src/utils/creativeGenerator.ts": "Contains TypeScript types for creative package data and a pure function `generateCreativePackage` that produces audience personas, hooks, scripts, ad copy, and shot breakdowns based on product inputs, funnel stage, and tone mode.",
+  "frontend/src/utils/urlParams.ts": "Utility functions for extracting, storing, and clearing URL parameters from both query strings and hash-based routing, with sessionStorage persistence support.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration defining custom fonts, OKLCH-based color tokens, border radii, shadows, and accordion animations, with typography, container-queries, and animate plugins.",
+  "project_state.json": "Project state manifest describing a UGC video creative director AI agent app, listing existing features, architectural notes, and versioning metadata for build planning."
+}

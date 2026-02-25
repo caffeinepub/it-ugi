@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Root application component managing view state (form/results/history) and passing generated creative data between CreativeForm, CreativeResults, and PackageHistory components.",
+  "frontend/src/utils/creativeGenerator.ts": "Pure TypeScript deterministic creative package generator that produces audience personas, hook variations, 30/15/6-second scripts, YouTube outlines, Meta Ads copy, Google Video Ads copy, shot breakdowns, and CTA variations based on product inputs, funnel stage, and tone mode. Also includes serialization/deserialization helpers for backend storage.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations — fetching all creative packages, fetching a single package by ID, and saving a new creative package with full asset arrays.",
+  "frontend/src/components/Layout.tsx": "App shell with sticky header (logo + navigation), conditional hero banner for the form view, main content area, and footer with caffeine.ai attribution.",
+  "frontend/src/components/CreativeForm.tsx": "Multi-step input form with product details, platform multi-select checkboxes, funnel stage radio buttons, tone mode radio buttons, and optional competitor info textarea, with validation before submission.",
+  "frontend/src/components/CreativeResults.tsx": "Tabbed results display showing all generated creative package sections (Persona, Hooks, Scripts, Meta Ads, Google Ads, Shot Breakdown) with per-section and Copy All clipboard buttons, plus Save Package functionality.",
+  "frontend/src/components/PackageHistory.tsx": "History list component that fetches and displays all saved creative packages from the backend with loading/empty states, and restores any saved package on click.",
+  "frontend/src/index.css": "Global styles with dark-first OKLCH color system, Syne/Inter fonts, and reusable component classes — all `@apply` directives now use only plain Tailwind utilities (no opacity modifiers), with opacity-based colors expressed as raw CSS custom properties to avoid the Tailwind v3 `@apply` limitation.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Syne/Inter font families, brand orange-coral color token, surface color tokens, brand box-shadow, and all standard shadcn/ui color mappings.",
+  "frontend/src/main.tsx": "Application entry point wrapping the app with QueryClientProvider, InternetIdentityProvider, and ThemeProvider (dark mode default)."
+}
